@@ -34,9 +34,7 @@
   * Certificado [dados do certificado]
   * Endereço
 
-- [ ]  Implementar um Sistema de Autenticação.
-
-- [ ] Colocar uma lista de pessoas na página Home.
+- [ ]  Implementar um Sistema de Autenticação | Passport.
 
 ## 🚀 Como executar o projeto
 
