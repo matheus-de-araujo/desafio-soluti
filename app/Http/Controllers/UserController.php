@@ -30,9 +30,11 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $telephone = $user->telephones()->get();
+        $address = $user->address()->get();
 
         $users [] = $user;
         $users [] = $telephone;
+        $users [] = $address;
 
         return $users;
     }
