@@ -24,11 +24,11 @@
 ## 🎯 Metas no Projeto
 - [X] Preparar o ambiente de desenvolvimento.
 
-- [X] Construir um CRUD de pessoa usando o PostMan, como serviço de API.
+- [ ] Construir um CRUD de usuario [nome, cpf, telefones, endereço].
 
-- [X]  Implementar um Sistema de Autenticação.
+- [ ]  Implementar um Sistema de Autenticação.
 
-- [x] Colocar uma lista de pessoas na página Home.
+- [ ] Colocar uma lista de pessoas na página Home.
 
 ## 🚀 Como executar o projeto
 
