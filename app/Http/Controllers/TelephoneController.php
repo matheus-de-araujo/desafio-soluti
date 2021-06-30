@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Telephone;
 use Illuminate\Http\Request;
 
 class TelephoneController extends Controller
