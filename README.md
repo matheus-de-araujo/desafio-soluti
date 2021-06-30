@@ -24,7 +24,15 @@
 ## 🎯 Metas no Projeto
 - [X] Preparar o ambiente de desenvolvimento.
 
-- [ ] Construir um CRUD de usuario [nome, cpf, telefones, endereço].
+- [ ] Construir um CRUD de usuario 
+  * Nome
+  * Cpf
+  * Telefones
+  * Email
+  * Data de nascimento
+  * Senha
+  * Certificado [dados do certificado]
+  * Endereço
 
 - [ ]  Implementar um Sistema de Autenticação.
 
