@@ -14,7 +14,14 @@ class Certificate extends Model
      */
     protected $fillable = [
         'data',
+        'user_id',
     ];
+
+    /**
+     *  Não usa o created_at e updated_at
+     */
+
+    public $timestamps = false;
 
     public function User() {
         return $this->belongTo(User::class);
