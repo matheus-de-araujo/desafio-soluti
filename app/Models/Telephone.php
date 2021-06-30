@@ -9,6 +9,14 @@ class Telephone extends Model
 {
     use HasFactory;
 
+    /**
+     * Os atributos preenchíveis.
+     */
+    protected $fillable = [
+        'telephone',
+        'user_id',
+    ];
+
     public function User() {
         return $this->belongTo(User::class);
     }

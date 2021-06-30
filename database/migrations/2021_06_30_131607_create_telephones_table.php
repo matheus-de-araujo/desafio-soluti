@@ -14,6 +14,8 @@ class CreateTelephonesTable extends Migration
         Schema::create('telephones', function (Blueprint $table) {
             $table->id();
             $table->string('telephone');
+            $table->timestamps();
+            
             $table->foreignId('user_id')->constrained();
         });
     }
@@ -25,6 +27,6 @@ class CreateTelephonesTable extends Migration
     {
         Schema::dropIfExists('telephones');
 
-        $table->dropForeign('telephones_user_id_foreign');
+        //$table->dropForeign('telephones_user_id_foreign');
     }
 }
