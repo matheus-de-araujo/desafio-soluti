@@ -1,9 +1,9 @@
 <h1 align="center" font-weight:bold>
-  Prova Técnica em Laravel - Soluti
+  Prova Técnica - Soluti
 </h1>
 
 <h3 align="center">
-  É uma prova técnica em Laravel para o processo seletivo da soluti
+  Prova Técnica em Laravel - Soluti
 </h3>
 
 <p align="center">
@@ -19,7 +19,7 @@
 
 
 ## :pencil: Sobre o projeto
-É um repositório de aprendizagem, onde estou estudando e aprendendo como funciona o framework Laravel PHP
+É uma prova técnica em Laravel para o processo seletivo da soluti
 	 
 ## 🎯 Metas no Projeto
 - [X] Preparar o ambiente de desenvolvimento.
