@@ -24,11 +24,11 @@
 ## 🎯 Metas no Projeto
 - [X] Preparar o ambiente de desenvolvimento.
 
-- [ ] Construir um CRUD de usuario 
+- [ ] Construir um CRUD de usuario | Arquitetura REST
   * Nome
-  * Cpf
+  * Cpf - único
   * Telefones
-  * Email
+  * Email - único
   * Data de nascimento
   * Senha
   * Certificado [dados do certificado]
