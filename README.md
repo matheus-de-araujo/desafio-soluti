@@ -24,7 +24,7 @@
 ## 🎯 Metas no Projeto
 - [X] Preparar o ambiente de desenvolvimento.
 
-- [ ] Construir um CRUD de usuario | Arquitetura REST
+- [X] Construir um CRUD de usuario | Arquitetura REST
   * Nome
   * Cpf - único
   * Telefones
