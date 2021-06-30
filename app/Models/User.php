@@ -12,9 +12,7 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
+     * Os atributos preenchíveis.
      */
     protected $fillable = [
         'name',
@@ -23,9 +21,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
+     * Os atributos que ficam escondido.
      */
     protected $hidden = [
         'password',
@@ -33,9 +29,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
+     * Os atributos que devem ser convertidos em tipos nativos.
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
