@@ -17,12 +17,9 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'cpf',
-        'telephone_id',
         'email',
         'birthday',
         'password',
-        'certificate_id',
-        'adress_id',
     ];
 
     /**
@@ -39,4 +36,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function Telephones() {
+        return $this->hasMany(Telephone::class);
+    }
 }
