@@ -28,7 +28,13 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return User::findOrFail($id);
+        $user = User::findOrFail($id);
+        $telephone = $user->telephones()->get();
+
+        $users [] = $user;
+        $users [] = $telephone;
+
+        return $users;
     }
 
     /**
