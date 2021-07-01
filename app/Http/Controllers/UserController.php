@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Telephone;
+use App\Models\Address;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -20,7 +22,24 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        User::create($request->all());
+        $user = User::create($request->all());
+
+        Telephone::create([
+            'user_id' => $user->id(),
+            'telephone' => $request->telephone(),
+        ]);
+
+        Address::create([
+            'user_id' => $user->id(),
+            'country' => $request->country(),
+            'state' => $request->state(),
+            'city' => $request->city(),
+            'district' => $request->district(),
+            'street' => $request->street(),
+            'complement' => $request->complement(),
+            'cep' => $request->cep(),
+        ]);
+
     }
 
     /**
