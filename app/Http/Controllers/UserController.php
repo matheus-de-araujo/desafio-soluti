@@ -29,16 +29,11 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
-        $telephone = $user->telephones()->get();
-        $address = $user->address()->get();
-        $certificate = $user->certificate()->get();
+        $user->telephones()->get();
+        $user->address()->get();
+        $user->certificate()->get();
 
-        $users [] = $user;
-        $users [] = $telephone;
-        $users [] = $address;
-        $users [] = $certificate;
-
-        return $users;
+        return $user;
     }
 
     /**
