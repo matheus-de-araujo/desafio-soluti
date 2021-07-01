@@ -17,7 +17,7 @@ class AuthenticateController extends Controller
         // else{ 
         //     return response()->json(['error'=>'Unauthenticated'], 401); 
         // } 
-        return 'Olá Autenticado';
+        return 'Login';
     }
 
     public function logout(){
@@ -31,6 +31,6 @@ class AuthenticateController extends Controller
         // else{ 
         //     return response()->json(['error'=>'Unauthenticated'], 401); 
         // } 
-        return 'Olá logout';
+        return 'logout';
     }
 }

@@ -25,19 +25,19 @@ class UserController extends Controller
         $user = User::create($request->all());
 
         Telephone::create([
-            'user_id' => $user->id(),
-            'telephone' => $request->telephone(),
+            'user_id' => $user->id,
+            'telephone' => $request->telephone,
         ]);
 
         Address::create([
-            'user_id' => $user->id(),
-            'country' => $request->country(),
-            'state' => $request->state(),
-            'city' => $request->city(),
-            'district' => $request->district(),
-            'street' => $request->street(),
-            'complement' => $request->complement(),
-            'cep' => $request->cep(),
+            'user_id' => $user->id,
+            'country' => $request->country,
+            'state' => $request->state,
+            'city' => $request->city,
+            'district' => $request->district,
+            'street' => $request->street,
+            'complement' => $request->complement,
+            'cep' => $request->cep,
         ]);
 
     }
@@ -48,9 +48,10 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
-        $user->telephones()->get();
-        $user->address()->get();
-        $user->certificate()->get();
+        
+        $user->telephones;
+        $user->address;
+        $user->certificate;
 
         return $user;
     }
