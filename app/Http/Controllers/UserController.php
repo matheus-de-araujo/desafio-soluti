@@ -29,6 +29,7 @@ class UserController extends Controller
             $request['password'] = bcrypt($request['password']);
 
             $user = User::create($request->all());
+            $response['token'] =  $user->createToken('MyApp')->accessToken;
 
             Telephone::create([
                 'user_id' => $user->id,
@@ -47,7 +48,8 @@ class UserController extends Controller
             ]);
 
             DB::commit();
-            return response()->json('Cadastrado com Sucesso', 200);
+            $response['message'] = 'Cadastrado com Sucesso';
+            return response()->json($response, 200);
         } catch (\Exception $e) {
             DB::rollBack();
             return response()->json($e, 500); 
