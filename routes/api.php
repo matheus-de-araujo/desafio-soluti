@@ -8,14 +8,14 @@ use App\Http\Controllers\AuthenticateController;
 
 Route::apiResource('certificate', CertificateController::class);
 
-Route::get('login', [AuthenticateController::class, 'login'])->name('login');
+Route::post('login', [AuthenticateController::class, 'login'])->name('login');
 
-Route::apiResource('user', UserController::class);
+Route::post('user', [UserController::class, 'store'])->name('user-store');
 
-// Route::middleware('auth:api')->group( function () {
+Route::middleware('auth:api')->group( function () {
   
-//   Route::apiResource('user', UserController::class)->except(['store']);
+  Route::apiResource('user', UserController::class);
   
-//   Route::post('logout', [AuthenticateController::class, 'logout'])->name('logout');
+  Route::post('logout', [AuthenticateController::class, 'logout'])->name('logout');
 
-// });
+});

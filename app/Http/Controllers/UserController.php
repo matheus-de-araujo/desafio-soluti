@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Telephone;
 use App\Models\Address;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -22,23 +23,36 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = User::create($request->all());
+        DB::beginTransaction();
 
-        Telephone::create([
-            'user_id' => $user->id,
-            'telephone' => $request->telephone,
-        ]);
+        try {
+            $request['password'] = bcrypt($request['password']);
 
-        Address::create([
-            'user_id' => $user->id,
-            'country' => $request->country,
-            'state' => $request->state,
-            'city' => $request->city,
-            'district' => $request->district,
-            'street' => $request->street,
-            'complement' => $request->complement,
-            'cep' => $request->cep,
-        ]);
+            $user = User::create($request->all());
+
+            Telephone::create([
+                'user_id' => $user->id,
+                'telephone' => $request->telephone,
+            ]);
+
+            Address::create([
+                'user_id' => $user->id,
+                'country' => $request->country,
+                'state' => $request->state,
+                'city' => $request->city,
+                'district' => $request->district,
+                'street' => $request->street,
+                'complement' => $request->complement,
+                'cep' => $request->cep,
+            ]);
+
+            DB::commit();
+            return response()->json('Cadastrado com Sucesso', 200);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return response()->json($e, 500); 
+        }
+        
 
     }
 
