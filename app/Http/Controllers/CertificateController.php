@@ -18,12 +18,16 @@ class CertificateController extends Controller
         if(!strpos($request['certificate']->getClientOriginalName(), '.pem')){
             return response()->json(['error'=> 'formato inválido'], 400); 
         }
+
+        if($request->user_id == null) {
+            return response()->json(['error'=> 'Não informado o id do Usuário'], 400);
+        }
         
         DB::beginTransaction();
         try {
             $data = file_get_contents($request['certificate']);
 
-            $Certificate::create([
+            Certificate::create([
                 'user_id' => $request->user_id, 
                 'data' => $data,
             ]);
@@ -33,7 +37,7 @@ class CertificateController extends Controller
 
         } catch (\Exception $e) {
             DB::rollBack();
-            return response()->json(['error'=> $e->message], 401); 
+            return response()->json($e, 500); 
         }
     }
 
@@ -42,6 +46,26 @@ class CertificateController extends Controller
      */
     public function show($id)
     {
-        return Certificate::findOrFail($id);
+        try {
+            //verifica se o ID é válido
+            if(intval($id) === 0) {
+                return response()->json(['error'=> 'O parametro não é válido'], 400);
+            }
+
+            $x509 = new X509();
+            $certificate = Certificate::where('user_id',$id)->firstOrFail();
+            
+            $cert = $x509->loadX509($certificate->data);
+
+            $structureCert = [
+                'DN' => $x509->getDN(), 
+                'issuerDN' => $x509->getIssuerDN(), 
+                'validity' => $cert['tbsCertificate']['validity'],
+            ];
+            return response()->json($structureCert, 200);
+
+        } catch (\Exception $e) {
+            return response()->json($e, 500);
+        }
     }
 }
