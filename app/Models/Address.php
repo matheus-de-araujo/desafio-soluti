@@ -20,6 +20,12 @@ class Address extends Model
         'user_id',
     ];
 
+    /**
+     *  Não usa o created_at e updated_at
+     */
+
+    public $timestamps = false;
+
     public function User() {
         return $this->belongTo(User::class);
     }
