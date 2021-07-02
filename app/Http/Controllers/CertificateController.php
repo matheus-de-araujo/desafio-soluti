@@ -4,23 +4,37 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Certificate;
+use Illuminate\Support\Facades\DB;
+use phpseclib\File\X509;
 
 class CertificateController extends Controller
 {
     /**
-     * Lista todos os Certificados
-     */
-    public function index()
-    {
-        return Certificate::all();
-    }
-
-    /**
-     * Salva os certificados de acordo com os dados do $request
+     * Salva os certificados de acordo com os dados do $request e o id do cliente
      */
     public function store(Request $request)
-    {
-        Certificate::create($request->all());
+    {   
+        // verifica se o certificado está no formato valido 
+        if(!strpos($request['certificate']->getClientOriginalName(), '.pem')){
+            return response()->json(['error'=> 'formato inválido'], 400); 
+        }
+        
+        DB::beginTransaction();
+        try {
+            $data = file_get_contents($request['certificate']);
+
+            $Certificate::create([
+                'user_id' => $request->user_id, 
+                'data' => $data,
+            ]);
+
+            DB::commit();
+            return response()->json(['Response'=> 'Cadastrado com Sucesso'], 200);
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return response()->json(['error'=> $e->message], 401); 
+        }
     }
 
     /**
@@ -29,23 +43,5 @@ class CertificateController extends Controller
     public function show($id)
     {
         return Certificate::findOrFail($id);
-    }
-
-    /**
-     * Atualiza informações do certificado com o $id de acordo com o $request
-     */
-    public function update(Request $request, $id)
-    {
-        $certificate =  Certificate::findOrFail($id);
-        $certificate->update($request->all());
-    }
-
-    /**
-     * Exclui o certificado com o $id
-     */
-    public function destroy($id)
-    {
-        $certificate =  Certificate::findOrFail($id);
-        $certificate->delete();
     }
 }
