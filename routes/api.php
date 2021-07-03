@@ -16,6 +16,8 @@ Route::middleware('auth:api')->group( function () {
   
   Route::post('logout', [AuthenticateController::class, 'logout'])->name('logout');
 
-  Route::apiResource('certificate', CertificateController::class);
+  Route::post('certificate-store', [CertificateController::class, 'store'])->name('certificate-store');
+
+  Route::get('certificate-show', [CertificateController::class, 'show'])->name('certificate-show');
 
 });
