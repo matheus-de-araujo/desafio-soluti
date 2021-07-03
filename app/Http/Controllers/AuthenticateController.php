@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Models\User;
+use Illuminate\Support\Facades\Log;
 
 class AuthenticateController extends Controller
 {
@@ -19,6 +20,7 @@ class AuthenticateController extends Controller
             $response['user']  =  $user;
             $response['token'] =  $user->createToken('MyApp')->accessToken;
 
+            Log::info('Usuário: se logou');
             return response()->json($response, 200); 
         } 
         else{ 
