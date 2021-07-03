@@ -19,9 +19,9 @@
 
 
 ## :pencil: Sobre o projeto
-É uma prova técnica em Laravel para o processo seletivo da soluti
+É uma prova técnica em Laravel para o processo seletivo da soluti - Esse projeto é uma API REST que será consumida por um Front End React que está [nesse](https://github.com/matheus-de-araujo/client-soluti) repositório.
 	 
-## 🎯 Metas no Projeto
+## 🎯 Metas do Projeto
 - [X] Preparar o ambiente de desenvolvimento.
 
 - [X] Construir um CRUD de usuario | Arquitetura REST
@@ -34,11 +34,12 @@
   * Certificado [dados do certificado]
   * Endereço
 
-- [ ]  Implementar um Sistema de Autenticação | Passport.
+- [X]  Implementar um Sistema de Autenticação | Passport.
+- [X]  Fazer a leitura de um Certificado e salvar no Banco | PhpSecLib.
 
 ## 🚀 Como executar o projeto
 
-É preciso ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/).
+É preciso ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/), ter o Laravel, Php e Mysql instalado.
 
 #### 🧭 Rodando a aplicação
 
@@ -46,8 +47,14 @@
 
 # Clone este repositório
 $ git clone https://github.com/matheus-de-araujo/desafio-laravel
+$ cd desafio-laravel
+$ composer install
+$ php artisan migrate
+$ php artisan passport:install
+$ php artisan key:generate
 
 ```
+Não se esqueça de copiar o arquivo .Env e colocar as informações relativas ao Banco de Dados da sua máquina
 
 ## 🛠 Tecnologias
 
