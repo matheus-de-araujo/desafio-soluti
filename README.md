@@ -46,8 +46,8 @@
 ```bash
 
 # Clone este repositório
-$ git clone https://github.com/matheus-de-araujo/desafio-laravel
-$ cd desafio-laravel
+$ git clone https://github.com/matheus-de-araujo/server-laravel
+$ cd server-laravel
 $ composer install
 $ php artisan migrate
 $ php artisan passport:install
@@ -61,9 +61,11 @@ Não se esqueça de copiar o arquivo .Env e colocar as informações relativas a
 As seguintes tecnologias foram usadas na construção do projeto:
 
 - **Laravel**
-- **Javascript**
 - **Artisan**
 - **Composer**
+- **Mysql**
+- **PhpSecLib**
+- **Passport - OAuth 2**
 
 ---
 
