@@ -53,6 +53,15 @@ $ php artisan migrate
 $ php artisan passport:install
 $ php artisan key:generate
 
+# Ou use os scripts prontos
+
+# Esse comando copia o .env, após isso configure as informções nele,
+# Caso contrário o próximo comando pode gerar um erro de migration.
+$ composer copia-env
+
+# Esse comando prepara o ambiente.
+$ composer prepara-ambiente
+
 ```
 Não se esqueça de copiar o arquivo .Env e colocar as informações relativas ao Banco de Dados da sua máquina
 
