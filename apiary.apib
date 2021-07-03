@@ -1,13 +1,13 @@
 FORMAT: 1A
-HOST: https://polls.apiblueprint.org/
+HOST: https://localhost/
 
 # soluti
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+Documentação da API REST server-soluti
 
-## Questions Collection [/questions]
+## Rotas de Usuário [/user]
 
-### List All Questions [GET]
+### Listar todos os Usuários [GET]
 
 + Response 200 (application/json)
 
@@ -78,3 +78,37 @@ form of choices.
                     }
                 ]
             }
+            
+            
+            
+            
+            
+            
+            
+## Rotas de Autenticação [/login]
+
+### Fazer Login [Get]
+
+    + Response 200 (application/json)
+
+            [
+                {
+                    "question": "Favourite programming language?",
+                    "published_at": "2015-08-05T08:40:51.620Z",
+                    "choices": [
+                        {
+                            "choice": "Swift",
+                            "votes": 2048
+                        }, {
+                            "choice": "Python",
+                            "votes": 1024
+                        }, {
+                            "choice": "Objective-C",
+                            "votes": 512
+                        }, {
+                            "choice": "Ruby",
+                            "votes": 256
+                        }
+                    ]
+                }
+            ]
