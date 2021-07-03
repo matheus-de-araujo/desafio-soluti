@@ -13,7 +13,7 @@ class CertificateController extends Controller
      * Salva os certificados de acordo com os dados do $request e o id do cliente
      */
     public function store(Request $request)
-    {   
+    {           
         // verifica se o certificado está no formato valido 
         if(!strpos($request['certificate']->getClientOriginalName(), '.pem')){
             return response()->json(['error'=> 'formato inválido'], 400); 
